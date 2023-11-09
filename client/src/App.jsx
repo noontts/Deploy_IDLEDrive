@@ -28,6 +28,7 @@ import MerChantUserEdit from "./pages/edit_Profile/Merchant";
 import RouteDetail from "./pages/users/RouteDetail";
 import EventDetail from "./pages/users/EventDetail";
 import AddRouteForm from "./pages/users/AddRouteForm";
+import NotFound from "./pages/users/NotFound";
 
 function App() {
   return (
@@ -112,6 +113,7 @@ function App() {
           <Route path="event/:id" element={<EventDetail/>} />
           <Route path="editprofile/:id" element={<UserEdit/>}/>
           <Route path="event" element={<EventList/>}/>
+          <Route path='*' element={<NotFound/>} />
         </Routes>
       </ContentContainer>
       <Footer />
