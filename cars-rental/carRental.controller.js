@@ -9,7 +9,6 @@ const route = express.Router();
 const CarRentalDocument = require("./carRentalDocument.model");
 const { uploadImage } = require("../config/multerConfig");
 
-
 route.post("/auth/register", async (req, res) => {
   try {
     const {
@@ -72,15 +71,11 @@ route.post("/auth/login", async (req, res) => {
 
     // Find user by email
     const user = await CarRental.findOne({
-      where: { email: email },
+      where: { email: email, status: true },
     });
 
     if (!user || user.password !== password) {
       return res.status(401).json({ error: "Invalid credentials" });
-    }
-
-    if(user.status !== "1"){
-      return res.status(401).json({ error: "Merchant not yet verified" });
     }
 
     res.json({ message: "Login successful", user });
@@ -150,7 +145,7 @@ route.get("/total-cost/:id", async (req, res) => {
     const result = await Rentals.aggregate("TotalCost", "SUM", {
       where: {
         carRental_id: carRentalId,
-        RentalStatus: 'Complete',
+        RentalStatus: "Complete",
       },
       plain: false,
     });
@@ -232,7 +227,7 @@ route.get("/history/:rental_id", async (req, res) => {
   }
 });
 
-route.put("/:id",uploadImage.single('profileImage'), async (req, res) => {
+route.put("/:id", uploadImage.single("profileImage"), async (req, res) => {
   const { id } = req.params;
 
   try {
@@ -255,7 +250,9 @@ route.put("/:id",uploadImage.single('profileImage'), async (req, res) => {
 
     await carRental.save();
 
-    return res.status(200).json({ message: "CarRental updated successfully" , carRental});
+    return res
+      .status(200)
+      .json({ message: "CarRental updated successfully", carRental });
   } catch (error) {
     console.error("Error updating CarRental:", error);
     return res.status(500).json({ error: "Internal Server Error" });
