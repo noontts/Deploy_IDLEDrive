@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+const path = require("path");
 const { connect, sync } = require("./config/dbConfig");
 const carsRoutes = require("./cars/car.controller");
 const rentalRoutes = require("./cars-rental/carRental.controller");
@@ -32,6 +33,11 @@ app.use("/api/v1/idledrive", imageRoutes);
 app.use("/api/v1/idledrive", routesDetailRoutes);
 app.use("/api/v1/idledrive", eventRoutes);
 // app.use("/api/v1/idledrive/upload", uploadRoute);
+
+app.use(express.static("./client/dist"));
+app.get("*", (req, res)=>{
+  res.sendFile(path.resolve(__dirname,"client","dist","index.html"));
+})
 
 app.listen(3000, () => {
   console.log("Listening on port: 3000");

@@ -1,12 +1,21 @@
 const { Sequelize } = require("sequelize");
+const fs = require('fs');
+const path = require('path');
+
+const caFilePath = path.join(__dirname, 'DigiCertGlobalRootCA.crt.pem');
 
 const sequelize = new Sequelize(
-  "idledev",
-  "root", // Username
-  "030431904Asd!", // Password
+  'idledev', // Database name
+  'idledrive', // Username with server name
+  'hacka!123789Asd', // Password
   {
-    host: "localhost",
-    dialect: "mysql", //use Mysql
+    host: 'idledev.mysql.database.azure.com',
+    dialect: 'mysql',
+    dialectOptions: {
+      ssl: {
+        ca: fs.readFileSync(caFilePath),
+      },
+    },
   }
 );
 
