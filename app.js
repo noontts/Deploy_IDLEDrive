@@ -19,6 +19,7 @@ async function initializeDatabase() {
 initializeDatabase();
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
@@ -39,6 +40,6 @@ app.get("*", (req, res)=>{
   res.sendFile(path.resolve(__dirname,"client","dist","index.html"));
 })
 
-app.listen(3000, () => {
-  console.log("Listening on port: 3000");
+app.listen(PORT, () => {
+  console.log(`Listening on port: ${PORT}`);
 });
