@@ -82,7 +82,7 @@ export const Tracking = () => {
 
   return (
     <>
-      {detailBooking && (
+      {detailBooking ? (
         <div className="mx-10">
           <div className="container">
             <div className="font-bold text-3xl">Track Booking</div>
@@ -185,6 +185,10 @@ export const Tracking = () => {
                 <RecentCard key={index} bookingData={booking} />
               ))}
           </div>
+        </div>
+      ) : (
+        <div className="flex justify-center items-center w-full h-96">
+          <span className="loading loading-ring loading-lg text-primary"></span>
         </div>
       )}
 

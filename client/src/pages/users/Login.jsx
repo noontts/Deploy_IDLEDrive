@@ -88,22 +88,6 @@ export default function Login() {
               Sign up
             </Link>
           </div>
-
-          <div className="flex justify-center items-center mt-10">
-            <span className="w-36 border border-gray-400"></span>
-            <span className="px-4 w-36 bg-white text-center">
-              or sign in with
-            </span>
-            <span className="w-36 border border-gray-400"></span>
-          </div>
-
-          <button className="flex flex-wrap justify-center w-full max-w-md mx-auto mt-10 border border-blue-700 text-blue-700 font-bold hover:border-gray-500 px-2 py-1.5 rounded-md">
-            <img
-              className="w-5 mr-2"
-              src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
-            />
-            Google
-          </button>
         </div>
       </div>
     </>

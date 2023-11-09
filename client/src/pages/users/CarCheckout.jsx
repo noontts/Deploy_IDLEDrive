@@ -123,7 +123,7 @@ export const CarCheckout = () => {
 
   return (
     <>
-      {carDetail && (
+      {carDetail ? (
         <div className="mx-6 flex">
           <div className="w-3/6">
             <div className="card card-side bg-white shadow-xl h-[270px]">
@@ -211,6 +211,10 @@ export const CarCheckout = () => {
               ยืนยันการจอง
             </button>
           </div>
+        </div>
+      ):(
+        <div className="flex justify-center items-center w-full h-96">
+          <span className="loading loading-ring loading-lg text-primary"></span>
         </div>
       )}
 

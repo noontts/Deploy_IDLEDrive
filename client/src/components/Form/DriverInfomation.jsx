@@ -52,14 +52,15 @@ export default function DriverInfomationhtmlForm({
       console.log(res);
       setDriverDoc(res.driverDocuments);
 
-      setForm({
+      setForm((prevData) => ({
+        ...prevData,
         fname: res?.user?.FirstName || "",
         lname: res?.user?.LastName || "",
         email: res?.user?.email || "",
         phone: res?.user?.phone || "",
         idcardFile: null,
         licenseFile: null,
-      });
+      }));
     };
 
     fetchDetailUser();
@@ -168,6 +169,7 @@ export default function DriverInfomationhtmlForm({
           <select 
             value={form.location}
             onChange={handleChange}
+            id="location"
             required className="peer w-full h-15 rounded-md border border-[#D9D9D9] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md">
               <option value='' disabled selected>สถานที่</option>
               <option value="ท่าอากาศยานเชียงใหม่">ท่าอากาศยานเชียงใหม่</option>

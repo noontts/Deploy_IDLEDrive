@@ -1,6 +1,6 @@
 import "./App.css";
 import { Navbar } from "./components/Navbar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { Home } from "./pages/users/Home";
 import { CarList } from "./pages/users/CarList";
 import { CarDetail } from "./pages/users/CarDetail";
@@ -29,12 +29,25 @@ import RouteDetail from "./pages/users/RouteDetail";
 import EventDetail from "./pages/users/EventDetail";
 import AddRouteForm from "./pages/users/AddRouteForm";
 import NotFound from "./pages/users/NotFound";
+import { useEffect } from "react";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
 
 function App() {
   return (
     <>
       <Navbar />
       <ContentContainer>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/car-list/*" element={<CarList />} />

@@ -351,21 +351,6 @@ export default function UserRegister() {
             Sign Up
           </button>
 
-          <div className="flex justify-center items-center mt-10 max-w-lg">
-            <span className="w-44 border border-gray-400"></span>
-            <span className="px-4 w-44 bg-white text-center">
-              or sign up with
-            </span>
-            <span className="w-44 border border-gray-400"></span>
-          </div>
-
-          <button className="flex flex-wrap justify-center w-full max-w-lg mx-auto mt-10 border border-blue-700 text-blue-700 font-bold hover:border-gray-500 px-2 py-1.5 rounded-md">
-            <img
-              className="w-5 mr-2"
-              src="https://lh3.googleusercontent.com/COxitqgJr1sJnIDe8-jiKhxDx1FrYbtRHKJ9z_hELisAlapwE9LUPh6fcXIfb5vwpbMl4xl9H9TRFPc5NOO8Sb3VSgIBrfRYvW6cUA"
-            />
-            Google
-          </button>
         </form>
       </div>
 

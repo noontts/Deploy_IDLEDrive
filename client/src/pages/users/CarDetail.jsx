@@ -42,7 +42,7 @@ export const CarDetail = () => {
 
   return (
     <>
-      {carDetail && (
+      {carDetail ? (
         <div className="flex flex-col justify-evenly lg:flex-row">
           <div className="w-full lg:w-3/6">
             <div className="mb-6 mt-3">
@@ -218,6 +218,10 @@ export const CarDetail = () => {
               </button>
             </div>
           </div>
+        </div>
+      ):(
+        <div className="flex justify-center items-center w-full h-96">
+          <span className="loading loading-ring loading-lg text-primary"></span>
         </div>
       )}
     </>
